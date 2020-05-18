@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request
+from flask_scss import Scss
 app = Flask(__name__)
-
+Scss(app, static_dir='my-first-website/static/css', asset_dir='my-first-website/assets/scss')
 
 @app.route('/', methods=['GET','POST'])
 def login():
