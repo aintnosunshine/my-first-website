@@ -15,7 +15,7 @@ def login():
 
 @app.route('/success')
 def show_success():
-    return render_template('success.html')
+    return render_template('') #the file was changed
 if __name__ == '__main__':
     app.run()
 
