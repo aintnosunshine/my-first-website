@@ -1,11 +1,20 @@
-from flask import Flask
+from flask import Flask, render_template, redirect, url_for, request
 app = Flask(__name__)
 
 
-@app.route('/')
-def hello():
-    return "Hello World!"
+@app.route('/', methods=['GET','POST'])
+def login():
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] != 'atlassian' or request.form['password'] != 'confluence123':
+            error = 'Invalid Credentials. Please try again.'
+        else:
+            return redirect(url_for('show_success'))
+    return render_template('login.html', error=error)
 
+@app.route('/success')
+def show_success():
+    return render_template('success.html')
 if __name__ == '__main__':
     app.run()
 
