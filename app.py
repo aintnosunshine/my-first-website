@@ -6,7 +6,7 @@ app = Flask(__name__)
 def login():
     error = None
     if request.method == 'POST':
-        if request.form['username'] != 'atlassian' or request.form['password'] != 'confluence123':
+        if request.form['username'] != 'atlassian' or request.form['password'] != '':
             error = 'Invalid Credentials. Please try again.'
         else:
             return redirect(url_for('show_success'))
